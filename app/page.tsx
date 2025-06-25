@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from "react";
 import TaskCard from "../components/TaskCard";
+import Loader from "@/components/Loader";
 
 type Task = {
   id: string;
@@ -13,9 +14,10 @@ type Task = {
 
 export default function Dashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const fetchTasks = async () => {
+    setLoading(true);
     try {
       const res = await fetch(
         "https://685bbc9189952852c2dac199.mockapi.io/api/v1/tasks"
@@ -47,6 +49,14 @@ export default function Dashboard() {
     fetchTasks();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 py-6 flex justify-center">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
       <div className="flex justify-between items-center mb-6">
@@ -59,9 +69,7 @@ export default function Dashboard() {
         </a>
       </div>
 
-      {loading ? (
-        <div className="text-center text-gray-500">Loading tasks...</div>
-      ) : tasks.length === 0 ? (
+      {tasks.length === 0 ? (
         <div className="text-center text-gray-400 py-10">
           <p className="text-lg">No tasks found</p>
           <p className="text-sm">Start by adding a new task.</p>
