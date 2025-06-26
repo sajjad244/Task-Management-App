@@ -52,7 +52,9 @@ export default function AddTask() {
 
   return (
     <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-6 text-center">Add New Task</h1>
+      <h1 className="text-2xl text-red-400 font-semibold mb-6 text-center">
+        Add New Task
+      </h1>
 
       <TaskForm
         initialValues={{
