@@ -105,6 +105,8 @@ export default function TaskForm({
         >
           <option value="pending">Pending</option>
           <option value="completed">Completed</option>
+          <option value="InProgress">In Progress</option>
+          <option value="failed">Failed</option>
         </select>
       </div>
 

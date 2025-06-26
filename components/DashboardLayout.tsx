@@ -11,7 +11,7 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] min-h-screen ">
+    <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] min-h-screen">
       {/* Sidebar */}
       <aside className="bg-gray-900 border-r shadow-2xl px-6 py-8 hidden md:block">
         <h1 className="text-xl font-bold text-indigo-700 mb-6">
@@ -30,7 +30,7 @@ export default function DashboardLayout({
         </nav>
       </aside>
 
-      {/* Mobile sidebar */}
+      {/* Mobile Sidebar */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-50 bg-black bg-opacity-40 md:hidden"
@@ -65,7 +65,7 @@ export default function DashboardLayout({
 
       {/* Main Content */}
       <div className="w-full">
-        {/* Mobile Topbar */}
+        {/* Topbar */}
         <div className="md:hidden p-4 border-b flex items-center justify-between bg-white shadow-sm sticky top-0 z-30">
           <button
             onClick={() => setSidebarOpen(true)}
@@ -78,6 +78,7 @@ export default function DashboardLayout({
           </h1>
         </div>
 
+        {/* Page content */}
         <div className="p-4 md:p-8">{children}</div>
       </div>
     </div>

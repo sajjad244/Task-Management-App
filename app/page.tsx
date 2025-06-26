@@ -17,6 +17,9 @@ type Task = {
 export default function Dashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [filter, setFilter] = useState<
+    "all" | "pending" | "completed" | "failed"
+  >("all");
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -44,7 +47,7 @@ export default function Dashboard() {
         <div className="flex justify-end gap-3">
           <button
             onClick={async () => {
-              toast.dismiss(t.id); // dismiss prompt
+              toast.dismiss(t.id);
               const res = await fetch(
                 `https://685bbc9189952852c2dac199.mockapi.io/api/v1/tasks/${id}`,
                 {method: "DELETE"}
@@ -73,32 +76,71 @@ export default function Dashboard() {
     ));
   };
 
+  const filteredTasks = tasks
+    .filter((task) =>
+      filter === "all" ? true : task.status.toLowerCase() === filter
+    )
+    .sort(
+      (a, b) => new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
+    );
+
+  const total = tasks.length;
+  const completed = tasks.filter(
+    (task) => task.status.toLowerCase() === "completed"
+  ).length;
+
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
         <h1 className="text-3xl font-extrabold text-indigo-700">
           📋 Task Dashboard
         </h1>
         <Link
           href="/tasks/new"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm transition"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm transition w-fit"
         >
           + Add New Task
         </Link>
       </div>
 
+      {/* Stats */}
+      <div className="mb-4 text-sm text-gray-600 dark:text-gray-300">
+        ✅ {completed} done / 🧮 {total} total
+      </div>
+
+      {/* Filter Buttons */}
+      <div className="flex gap-3 mb-6 flex-wrap">
+        {["all", "pending", "completed", "failed"].map((status) => (
+          <button
+            key={status}
+            onClick={() =>
+              setFilter(status as "all" | "pending" | "completed" | "failed")
+            }
+            className={`px-4 py-2 rounded-md border text-sm capitalize transition ${
+              filter === status
+                ? "bg-indigo-600 text-white"
+                : "bg-white dark:bg-gray-700 border-gray-300 text-gray-700 dark:text-gray-200"
+            }`}
+          >
+            {status}
+          </button>
+        ))}
+      </div>
+
+      {/* Loader / Tasks */}
       {loading ? (
         <div className="flex justify-center py-10">
           <Loader />
         </div>
-      ) : tasks.length === 0 ? (
+      ) : filteredTasks.length === 0 ? (
         <div className="text-center text-gray-400 py-10">
-          <p className="text-lg">No tasks found</p>
-          <p className="text-sm">Start by adding a new task.</p>
+          <p className="text-lg">No {filter} tasks found</p>
+          <p className="text-sm">Try adding or changing filters.</p>
         </div>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tasks.map((task) => (
+          {filteredTasks.map((task) => (
             <TaskCard key={task.id} task={task} onDelete={handleDelete} />
           ))}
         </div>
