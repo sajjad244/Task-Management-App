@@ -1,16 +1,59 @@
 "use client";
 
+import {useState} from "react";
 import TaskForm from "../../../components/TaskForm";
 
+type Task = {
+  title: string;
+  description: string;
+  status: string;
+  due_date: string;
+};
+
 export default function AddTask() {
-  const handleCreate = (task: unknown) => {
-    console.log("New task submitted:", task);
-    // 🔜 Future API POST
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleCreate = async (task: Task) => {
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      const res = await fetch(
+        "https://685bbc9189952852c2dac199.mockapi.io/api/v1/tasks",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(task),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to create task");
+      }
+
+      const data = await res.json();
+      console.log("New task created:", data);
+      setSuccess(true);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <h1 className="text-xl font-semibold mb-4">Add New Task</h1>
+    <div className="max-w-xl mx-auto p-6">
+      <h1 className="text-2xl font-semibold mb-6 text-center">Add New Task</h1>
+
       <TaskForm
         initialValues={{
           title: "",
@@ -19,9 +62,13 @@ export default function AddTask() {
           due_date: "",
         }}
         onSubmit={handleCreate}
-        submitText="Create Task"
-        successMessage="Task added successfully!"
+        submitText={loading ? "Creating..." : "Create Task"}
+        successMessage={success ? "Task added successfully!" : ""}
       />
+
+      {error && (
+        <p className="mt-4 text-center text-red-600 font-medium">{error}</p>
+      )}
     </div>
   );
 }
