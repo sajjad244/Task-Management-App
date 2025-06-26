@@ -11,9 +11,9 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] min-h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] min-h-screen ">
       {/* Sidebar */}
-      <aside className="bg-white border-r px-6 py-8 hidden md:block">
+      <aside className="bg-gray-900 border-r shadow-2xl px-6 py-8 hidden md:block">
         <h1 className="text-xl font-bold text-indigo-700 mb-6">
           📋 Task Manager
         </h1>

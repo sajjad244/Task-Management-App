@@ -29,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <DashboardLayout>{children}</DashboardLayout>
+        <main className="bg-gray-900">
+          <DashboardLayout>{children}</DashboardLayout>
+        </main>
         <Toaster position="bottom-right" reverseOrder={false} />
       </body>
     </html>
