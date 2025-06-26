@@ -20,6 +20,7 @@ export default function Dashboard() {
   const [filter, setFilter] = useState<
     "all" | "pending" | "completed" | "failed"
   >("all");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -80,8 +81,10 @@ export default function Dashboard() {
     .filter((task) =>
       filter === "all" ? true : task.status.toLowerCase() === filter
     )
-    .sort(
-      (a, b) => new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
+    .sort((a, b) =>
+      sortOrder === "asc"
+        ? new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
+        : new Date(b.due_date).getTime() - new Date(a.due_date).getTime()
     );
 
   const total = tasks.length;
@@ -102,18 +105,17 @@ export default function Dashboard() {
       </div>
 
       {/* Stats */}
-      <div className="mb-4 text-sm text-gray-300 ">
+      <div className="mb-4 text-sm text-gray-300">
         ✅ {completed} done / 🧮 {total} total
       </div>
 
-      {/* Filter Buttons */}
-      <div className="flex gap-3 mb-6 flex-wrap">
+      {/* Filters and Sort */}
+      <div className="flex  flex-wrap gap-3 mb-6">
         {["all", "pending", "completed", "failed"].map((status) => (
           <button
             key={status}
-            onClick={() =>
-              setFilter(status as "all" | "pending" | "completed" | "failed")
-            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            onClick={() => setFilter(status as any)}
             className={`px-4 py-2 rounded-md border text-sm capitalize transition ${
               filter === status
                 ? "bg-indigo-600 text-white"
@@ -123,6 +125,12 @@ export default function Dashboard() {
             {status}
           </button>
         ))}
+        <button
+          onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+          className="ml-auto px-4 py-2 rounded-md bg-gray-800 text-white text-sm hover:bg-gray-700 transition"
+        >
+          Sort by Due: {sortOrder === "asc" ? "Old → New" : "New → Old"}
+        </button>
       </div>
 
       {/* Loader / Tasks */}
