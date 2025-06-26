@@ -24,17 +24,16 @@ export default function TaskCard({task, onDelete}: Props) {
     failed: "bg-red-100 text-red-700",
   };
 
-  // fallback to gray if unknown status
   const statusColor =
     statusColorMap[task.status] || "bg-gray-100 text-gray-700";
 
   return (
     <div
-      className="bg-white dark:bg-gray-900 p-4 md:p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
+      className="bg-gray-900 p-4 md:p-5 rounded-xl border  border-gray-700 shadow-sm
       mb-4 max-w-md w-full mx-auto
       hover:shadow-lg hover:scale-[1.02] transition-transform duration-200
       flex flex-col
-      min-h-[220px] text-gray-800 dark:text-gray-100"
+      min-h-[220px] text-gray-100"
     >
       <div className="flex justify-between items-start mb-2 gap-2">
         <h2 className="text-base md:text-lg font-semibold line-clamp-1">

@@ -47,14 +47,14 @@ export default function DashboardLayout({
               <Link
                 href="/"
                 onClick={() => setSidebarOpen(false)}
-                className="text-indigo-600 hover:underline block"
+                className="text-indigo-600 hover:underline block font-extrabold"
               >
                 🏠 Dashboard
               </Link>
               <Link
                 href="/tasks/new"
                 onClick={() => setSidebarOpen(false)}
-                className="text-indigo-600 hover:underline block"
+                className="text-indigo-600 hover:underline block font-extrabold"
               >
                 ➕ Add Task
               </Link>
@@ -65,8 +65,8 @@ export default function DashboardLayout({
 
       {/* Main Content */}
       <div className="w-full">
-        {/* Topbar */}
-        <div className="md:hidden p-4 border-b flex items-center justify-between bg-white shadow-sm sticky top-0 z-30">
+        {/* Top bar */}
+        <div className="md:hidden p-4 border-b flex items-center justify-between bg-gray-900 shadow-sm sticky top-0 z-30">
           <button
             onClick={() => setSidebarOpen(true)}
             className="text-indigo-600 text-xl"
