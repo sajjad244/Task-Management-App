@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📋 Task Manager
 
-## Getting Started
+A sleek, modern task management application built with **Next.js 15**, **React 19**, **TypeScript**, and **Tailwind CSS 4**. Easily create, edit, view, and delete tasks with due dates and status filters.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+| Technology           | Purpose                        |
+| -------------------- | ------------------------------ |
+| **Next.js 15**       | App framework (App Router)     |
+| **React 19**         | UI building                    |
+| **TypeScript**       | Type safety                    |
+| **Tailwind CSS 4**   | Utility-first styling          |
+| **React Icons**      | Icons (edit, delete, view)     |
+| **React Datepicker** | Date input with calendar       |
+| **React Hot Toast**  | Toast notifications            |
+| **date-fns**         | Date formatting & manipulation |
+
+---
+
+## ✨ Features
+
+- ✅ Create, edit, and delete tasks
+- 📅 Set due dates with calendar picker
+- 🔍 Filter tasks by status (All / Pending / Completed / Failed)
+- 🌗 Dark mode ready
+- 📱 Fully responsive layout
+- 📊 Sort tasks by due date (asc/desc toggle)
+- 💡 Elegant UI with TailwindCSS 4 utilities
+
+---
+
+## 🛠 Getting Started
 
 ```bash
+git clone https://github.com/your-username/task-manager.git
+cd task-manager
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
