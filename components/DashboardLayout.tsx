@@ -18,12 +18,15 @@ export default function DashboardLayout({
           📋 Task Manager
         </h1>
         <nav className="space-y-4 text-sm">
-          <Link href="/" className="text-indigo-600 hover:underline block">
+          <Link
+            href="/"
+            className="text-indigo-600 hover:underline block font-bold"
+          >
             🏠 Dashboard
           </Link>
           <Link
             href="/tasks/new"
-            className="text-indigo-600 hover:underline block"
+            className="text-indigo-600 hover:underline block font-bold"
           >
             ➕ Add Task
           </Link>
@@ -47,14 +50,14 @@ export default function DashboardLayout({
               <Link
                 href="/"
                 onClick={() => setSidebarOpen(false)}
-                className="text-indigo-600 hover:underline block font-extrabold"
+                className="text-indigo-600 hover:underline block font-bold"
               >
                 🏠 Dashboard
               </Link>
               <Link
                 href="/tasks/new"
                 onClick={() => setSidebarOpen(false)}
-                className="text-indigo-600 hover:underline block font-extrabold"
+                className="text-indigo-600 hover:underline block font-bold"
               >
                 ➕ Add Task
               </Link>

@@ -92,20 +92,17 @@ export default function Dashboard() {
   return (
     <div>
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
-        <h1 className="text-3xl font-extrabold text-indigo-700">
-          📋 Task Dashboard
-        </h1>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
         <Link
           href="/tasks/new"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm transition w-fit"
+          className="px-4 py-2 bg-indigo-700 text-white rounded-md hover:bg-blue-900 text-sm transition w-fit"
         >
           + Add New Task
         </Link>
       </div>
 
       {/* Stats */}
-      <div className="mb-4 text-sm text-gray-600 dark:text-gray-300">
+      <div className="mb-4 text-sm text-gray-300 ">
         ✅ {completed} done / 🧮 {total} total
       </div>
 
@@ -120,7 +117,7 @@ export default function Dashboard() {
             className={`px-4 py-2 rounded-md border text-sm capitalize transition ${
               filter === status
                 ? "bg-indigo-600 text-white"
-                : "bg-white dark:bg-gray-700 border-gray-300 text-gray-700 dark:text-gray-200"
+                : "bg-gray-700 border-gray-300 text-gray-200"
             }`}
           >
             {status}

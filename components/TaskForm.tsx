@@ -61,7 +61,7 @@ export default function TaskForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl mx-auto p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-6 text-gray-800 dark:text-white"
+      className="max-w-xl mx-auto p-8 bg-gray-800 rounded-lg shadow-lg space-y-6 text-white "
     >
       {/* Title */}
       <div>
@@ -71,7 +71,7 @@ export default function TaskForm({
           name="title"
           value={task.title}
           onChange={handleChange}
-          className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
+          className="w-full border border-gray-600 bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
           placeholder="Task Title"
           required
           disabled={isSubmitting}
@@ -86,7 +86,7 @@ export default function TaskForm({
           name="description"
           value={task.description}
           onChange={handleChange}
-          className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 rounded-md px-4 py-3 h-28 resize-none focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
+          className="w-full border border-gray-600 bg-gray-900 rounded-md px-4 py-3 h-28 resize-none focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
           placeholder="Task Description"
           required
           disabled={isSubmitting}
@@ -100,7 +100,7 @@ export default function TaskForm({
           name="status"
           value={task.status}
           onChange={handleChange}
-          className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
+          className="w-full border border-gray-600 bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
           disabled={isSubmitting}
         >
           <option value="pending">Pending</option>
@@ -116,7 +116,7 @@ export default function TaskForm({
         <DatePicker
           selected={task.due_date ? new Date(task.due_date) : null}
           onChange={handleDateChange}
-          className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
+          className="w-full border border-gray-600 bg-gray-900 rounded-md px-4 py-3 focus:outline-none focus:ring-4 focus:ring-blue-400 transition"
           dateFormat="yyyy-MM-dd"
           placeholderText="Select a due date"
           disabled={isSubmitting}

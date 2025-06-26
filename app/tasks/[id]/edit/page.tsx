@@ -64,7 +64,7 @@ export default function EditTask({params}: Params) {
       if (!res.ok) throw new Error("Update failed");
 
       toast.dismiss();
-      toast.success("Task updated successfully!");
+
       router.push(`/tasks/${id}`);
     } catch (error) {
       toast.error("Failed to update task.");
@@ -83,8 +83,8 @@ export default function EditTask({params}: Params) {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold mb-6 text-indigo-700">
-        ✏️ Edit Task #{id}
+      <h1 className="text-3xl font-extrabold text-indigo-600 mb-8 text-center">
+        Update Task #{id}
       </h1>
       <TaskForm
         initialValues={task}

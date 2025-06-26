@@ -57,7 +57,7 @@ export default function ViewTask({
   return (
     <main className="min-h-screen bg-gray-900 flex items-center justify-center px-4 py-10">
       <section className="bg-gray-800 shadow-lg rounded-lg max-w-2xl w-full p-8 sm:p-12 md:p-16 text-gray-100">
-        <h1 className="text-3xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-8 text-center">
+        <h1 className="text-3xl font-extrabold text-indigo-600 mb-8 text-center">
           Task Details
         </h1>
         <div className="space-y-6">

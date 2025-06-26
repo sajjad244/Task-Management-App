@@ -52,7 +52,7 @@ export default function AddTask() {
 
   return (
     <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl text-red-400 font-semibold mb-6 text-center">
+      <h1 className="text-3xl font-extrabold text-indigo-600 mb-8 text-center">
         Add New Task
       </h1>
 

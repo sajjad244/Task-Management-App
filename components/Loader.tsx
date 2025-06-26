@@ -2,7 +2,7 @@ export default function Loader() {
   return (
     <div className="flex justify-center items-center min-h-[250px]">
       <svg
-        className="animate-spin h-12 w-12 text-purple-600"
+        className="animate-spin h-12 w-12 text-indigo-600"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

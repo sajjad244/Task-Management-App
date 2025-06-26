@@ -60,21 +60,21 @@ export default function TaskCard({task, onDelete}: Props) {
       <div className="flex flex-wrap gap-3 text-sm mt-auto">
         <a
           href={`/tasks/${task.id}`}
-          className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900 px-2 py-1 rounded transition"
+          className="flex items-center gap-1 text-blue-600  hover:text-blue-800  hover:bg-blue-100  px-2 py-1 rounded transition"
         >
           <AiOutlineEye size={16} />
           View
         </a>
         <a
           href={`/tasks/${task.id}/edit`}
-          className="flex items-center gap-1 text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 hover:bg-green-100 dark:hover:bg-green-900 px-2 py-1 rounded transition"
+          className="flex items-center gap-1 text-green-600  hover:text-green-800  hover:bg-green-100  px-2 py-1 rounded transition"
         >
           <AiOutlineEdit size={16} />
           Edit
         </a>
         {onDelete && (
           <button
-            className="flex items-center gap-1 text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-100 dark:hover:bg-red-900 px-2 py-1 rounded transition"
+            className="flex items-center gap-1 text-red-500  hover:text-red-700  hover:bg-red-100  px-2 py-1 rounded transition"
             onClick={() => onDelete(task.id)}
           >
             <AiOutlineDelete size={16} />
