@@ -125,12 +125,14 @@ export default function Dashboard() {
             {status}
           </button>
         ))}
-        <button
-          onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-          className="ml-auto px-4 py-2 rounded-md bg-gray-800 text-white text-sm hover:bg-gray-700 transition"
-        >
-          Sort by Due: {sortOrder === "asc" ? "Old → New" : "New → Old"}
-        </button>
+        <div>
+          <button
+            onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+            className="ml-auto px-4 py-2 rounded-md bg-gray-800 text-white text-sm hover:bg-gray-700 transition"
+          >
+            Sort by Due: {sortOrder === "asc" ? "Old → New" : "New → Old"}
+          </button>
+        </div>
       </div>
 
       {/* Loader / Tasks */}

@@ -24,7 +24,6 @@ A sleek, modern task management application built with **Next.js 15**, **React 1
 - ✅ Create, edit, and delete tasks
 - 📅 Set due dates with calendar picker
 - 🔍 Filter tasks by status (All / Pending / Completed / Failed)
-- 🌗 Dark mode ready
 - 📱 Fully responsive layout
 - 📊 Sort tasks by due date (asc/desc toggle)
 - 💡 Elegant UI with TailwindCSS 4 utilities
