@@ -29,10 +29,10 @@ export default function TaskCard({task, onDelete}: Props) {
 
   return (
     <motion.div
-      initial={{opacity: 0, y: 40}}
+      initial={{opacity: 0, y: 30}}
       animate={{opacity: 1, y: 0}}
-      transition={{duration: 0.6, ease: "easeOut"}}
-      whileHover={{scale: 2.03}}
+      transition={{duration: 0.4, ease: "easeOut"}}
+      whileHover={{scale: 1.03}}
       className="bg-gray-900 p-4 md:p-5 rounded-xl border border-gray-700 shadow-sm
       mb-4 max-w-md w-full mx-auto flex flex-col min-h-[220px] text-gray-100
       transition-all duration-300"

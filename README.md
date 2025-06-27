@@ -16,6 +16,7 @@ A sleek, modern task management application built with **Next.js 15**, **React 1
 | **React Datepicker** | Date input with calendar       |
 | **React Hot Toast**  | Toast notifications            |
 | **date-fns**         | Date formatting & manipulation |
+| **Framer Motion**    | Animation                      |
 
 ---
 
